@@ -1,0 +1,86 @@
+@font-face {
+    font-family: JetBrainsMono-Bold; 
+    src: url(./../fonts/JetBrainsMono-Bold-Italic.eot);
+    font-style: bold;
+}
+@font-face {
+    font-family: JetBrainsMono-Regular; 
+    src: url(./../fonts/JetBrainsMono-Regular.ttf);
+  
+}
+
+
+body{
+    font-family: JetBrainsMono-Regular !important;
+    background: black;
+    color: white;
+}
+/* about me block */
+.about__me{
+    margin-top: 85px;
+}
+.navbar-brand object{
+    height: 20px !important;
+}
+.my__bio h2{
+    font-family: JetBrainsMono-Regular;
+    text-transform: uppercase;
+}
+.my__bio__photo img{
+    height: 200px;
+    float: right;
+}
+.soc__links{
+    display: flex;
+}
+.soc__links i {
+    font-size: 33px;
+    margin-left: 10px;
+}
+.about__me hr,.skills hr{
+    height: 1.5px;
+    background: #343a40;
+}
+/* skills */
+.skills__block{
+    border-left: 3px solid #343a40;
+}
+.progress,.progress-bar{
+    transition: 1s all ease;
+}
+.progress:hover{
+    background-color: #007bff !important;
+}
+.progress:hover .progress-bar{ 
+    background-color: #e9ecef;
+}
+.fa-barcode{
+    font-size: 100px;
+}
+/* portfolio */
+.card__work img{
+    height: 300px;
+    width: 300px;
+}
+.portfolio a{
+    color: white;
+    text-decoration: none;
+}
+.card__work h4{
+    font-size: 18px;
+    margin-top: 10px;
+}
+@media screen and (max-width: 770px) {
+    .my__bio{
+        width: 213px;
+    }
+}
+@media screen and (max-width: 430px){
+    .my__bio {
+        width: auto;
+    }
+    .card__work img{
+        height: 200px;
+        width: 200px;
+    }
+}

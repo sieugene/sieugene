@@ -4,161 +4,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sieugene</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/all.css">
-    <!-- <link rel="shortcut icon" href="./images/clown.png" type="image/png"> -->
+    <link rel="shortcut icon" href="./assets/img/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/reset.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap-grid.min.css" />
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <object type="image/svg+xml" data="./images/Sieugene.svg">
-                        <img src="./images/Sieugene.svg" alt="image format png" />
-                    </object>
-                </a>           
+    <div class="preload">
+        <div class="gooey">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </nav>
-    </header>
-    <section class="about__me">
+        </div>
+    </div>
+    <div class="modal">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="my__bio">
-                        <h2>I am eugene</h2>
+            <div class="modal_top">
+                <div class="logo-item">
+                    <a href="/">
+                        <img src="./assets/img/logo_white.svg" alt="sieugene_logo">
+                    </a>
+                </div>
+                <div class="exit-item showModal">
+                    X
+                </div>
+            </div>
+            <div class="modal_center">
+                <p>
+                    I am a developer from Russia. There are links below where you can find me.
+                    I always try to develop and learn new things , I also strive to write better code,
+                    and I am currently looking for a job as a React developer. Let's work together in a
+                    high quality and interesting way
+                </p>
+            </div>
+            <div class="modal_down">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 col-sm-6">
+                        <a href="https://vk.com/eugenesi00" target="_blank">Vk</a>
+                    </div>
+                    <div class="col-xl-4 col-md-4 col-sm-6">
+                        <a href="https://github.com/sieugene" target="_blank">Github</a>
+                    </div>
+                    <div class="col-xl-4 col-md-4">
                         <p>
-                            I am a web developer, engaged in web development in
-                            php, in particular on CMS Wordpress. At the moment,
-                            I am a front end React developer with no experience
-                            in projects__
+                            Design and creation by Sieugene
                         </p>
-                        <div class="soc__links">
-                            <h4>Links:</h4>
-                            <a href="https://vk.com/eugenesi00" target="_blank"><i class="fab fa-vk"></i></a>
-                            <a href="https://github.com/sieugene" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="header__info-left">
+                    <nav class="nav__top">
+                        <a href="/">
+                            <img src="./assets/img/logo.svg" alt="sieugene_logo">
+                        </a>
+                        <a href="/" class="item__nav-top">Home</a>
+                    </nav>
+                    <div class="header__wrapper">
+                        <div class="about__info">
+                            <h1 class="about-main">I AM EUGENE</h1>
+                            <img src="./assets/img/arrow_cons.svg" alt="cons">
+                            <p class="about-content">
+                                I am a web developer, engaged in web<br>
+                                development in php, in particular on CMS Wordpress.<br>
+                                At the moment, I am a front end React developer with no
+                                experience in projects
+                            </p>
+                            <a href="/">
+                                <a class="about-btn showModal">
+                                    Contacts
+                                </a>
+                            </a>
+                        </div>
+                    </div>
+                    <nav class="nav__down">
+                        <a href="" class="item__nav-top goToProjects">Projects</a>
+                        <a href="" class="goToProjects">
+                            <img src="./assets/img/arrow_down.svg" alt="goDown">
+                        </a>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="header__info-right wow flash">
+                    <div class="header__number-vector"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__wrapper">
+            <div class="main__main-text">
+                <h2 class="main__text">
+                    React&Redux Projects
+                </h2>
+                <img src="./assets/img/Line 1.svg" alt="">
+            </div>
+            <div class="main__content" id="projects">
+                <!-- first card -->
+                <div class="main__card wow slideInLeft" data-wow-duration="2s" data-wow-delay="0.3s">
+                    <div class="left__gradient"></div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card_body">
+                                <h2 class="card__main__title">
+                                    Social Network
+                                </h2>
+                                <p class="card__main__content">
+                                    Test Project for learning, without focusing on design
+                                </p>
+                                <a href="https://github.com/sieugene/ReactLearning" target="_blank"
+                                    class="link__card">Link
+                                    <img src="./assets/img/Vector.svg" alt="arrow">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 mobile__ico">
+                            <div class="right__img">
+                                <img src="./assets/img/image 3.jpg" alt="sc">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="my__bio__photo">
-                        <img src="./images/gxwJa44oEo8.jpg">
+                <!-- second card  -->
+                <div class="main__card wow slideInLeft" data-wow-duration="2s" data-wow-delay="0.3s">
+                    <div class="left__gradient"></div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card_body">
+                                <h2 class="card__main__title">
+                                    CRUD app
+                                </h2>
+                                <p class="card__main__content">
+                                    Simple todo app with using firebase
+                                </p>
+                                <a href="https://github.com/sieugene/planningApp" target="_blank"
+                                    class="link__card">Link
+                                    <img src="./assets/img/Vector.svg" alt="arrow">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 mobile__ico">
+                            <div class="right__img">
+                                <img src="./assets/img/image 4.jpg" alt="sc">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+
+            </div>
+            <div class="main__main-text">
+                <h2 class="main__text">
+                    Angular projects
+                </h2>
+                <img src="./assets/img/Line 1.svg" alt="">
+            </div>
+            <div class="main__content" id="projects">
+                <!-- first card -->
+                <div class="main__card wow slideInLeft" data-wow-duration="2s" data-wow-delay="0.3s">
+                    <div class="left__gradient"></div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card_body">
+                                <h2 class="card__main__title">
+                                    Todo app
+                                </h2>
+                                <p class="card__main__content">
+                                    Simple todo app on angular
+                                </p>
+                                <a href="https://github.com/sieugene/ng-todo-spa" target="_blank"
+                                    class="link__card">Link
+                                    <img src="./assets/img/Vector.svg" alt="arrow">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 mobile__ico">
+                            <div class="right__img">
+                                <img src="./assets/img/image 5.jpg" alt="sc">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr />
         </div>
+    </main>
+    <section class="other_content">
+        <div class="parallax"></div>
     </section>
     <section class="skills">
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h2>Skills</h2>
-                    <i class="fas fa-barcode"></i>
-                </div>
-                <div class="col">
-                    Web Development
-                    <div class="col skills__block">
-                        <h4>PHP(CMS Wordpress)</h4>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4>React&Redux</h4>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr />
-        </div>
-    </section>
-    <section class="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h3>Portfolio</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a href="https://github.com/sieugene/ReactLearning" target="_blank">
-                        <div class="card__work">
-                            <img src="images/sc.jpg">
-                            <h4>Social Network[Beta]</h4>
-                            <p>31.02.2020</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="https://github.com/sieugene/planningApp" target="_blank">
-                        <div class="card__work">
-                            <img src="images/crud.jpg">
-                            <h4>Crud app</h4>
-                            <p>6.03.2020</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="https://github.com/sieugene/SavalanSugar" target="_blank">
-                        <div class="card__work">
-                            <img src="images/savalan.jpg">
-                            <h4>Savalan sugar[Landing Page]</h4>
-                            <p>1.11.2019</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a href="https://github.com/sieugene/Sview" target="_blank">
-                        <div class="card__work">
-                            <img src="images/sview.jpg">
-                            <h4>Sview APP</h4>
-                            <p>1.04.2019</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="https://github.com/sieugene/glass_theme_wp" target="_blank">
-                        <div class="card__work">
-                            <img src="images/glass__theme.jpg">
-                            <h4>Glass theme[Wordpress theme]</h4>
-                            <p>15.10.2019</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="https://github.com/sieugene/tamashaeeLanding" target="_blank">
-                        <div class="card__work">
-                            <img src="images/tamashaee.jpg">
-                            <h4>Tamashaee[Landing Page]</h4>
-                            <p>1.12.2019</p>
-                        </div>
-                    </a>
-                </div>
+            <div class="block__skills">
+                <h1>My skills</h1>
+                <ul class="timeline">
+                    <li class="timeline">
+                        <div class="icon done"></div>
+                        <details class="panel" open>
+                            <summary>Languages and others</summary>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JS es6</li>
+                                <li>PHP</li>
+                                <li>Wordpress</li>
+                                <li>SCSS</li>
+                                <li>React Js</li>
+                                <li>Redux</li>
+                                <li>Thunk</li>
+                                <li>Firebase</li>
+                                <li>Figma</li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="timeline">
+                        <div class="icon done"></div>
+                        <details class="panel" open>
+                            <summary>Common experience</summary>
+                            <p>
+                                I have experience in creating websites based on layout, creating websites on CMS
+                                Wordpress,
+                                creating SPA on react.
+                                With regard to <strong>React</strong>, there is:<br>
+                                <strong>The social network</strong>, which was developed by the course from
+                                "it-incubator",
+                                did not focus on the appearance, only on the code.<br>
+                                Libraries used during creation(React,Redux, Thank, Axios,Reselect, redux-form).<br>
+                                After completing the course, I have an understanding of class, functional components,
+                                FLUX
+                                cycle, REST query operation, lifecycle methods, hook, and HOC.<br>
+                                <strong>CRUD</strong> (todo) application using firebase.<br>
+                                As a hobby, I am interested in various libraries, and I once created a spa on
+                                angular:<br>
+                                <strong>Todo</strong> on Angular.<br>
+                                There is a desire to develop and improve the code, as well as basic knowledge of webpack
+                                (theory), scss, figma.
+                            </p>
+                        </details>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        $('.showModal').click(function () {
+            $('.modal').toggleClass("active");
+            $('body').toggleClass("active");
+        });
+        $(function () {
+            $('.goToProjects').on('click', function (e) {
+                $('html,body').stop().animate({ scrollTop: $('#projects').offset().top }, 1000);
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script src="./assets/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+        window.onload = function () {
+            document.body.classList.add('loaded_hiding');
+            window.setTimeout(function () {
+                document.body.classList.add('loaded');
+                document.body.classList.remove('loaded_hiding');
+            }, 1500);
+        }
+    </script>
 </body>
 
 </html>

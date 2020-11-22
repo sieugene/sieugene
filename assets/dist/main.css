@@ -14,12 +14,45 @@
   width: 100%;
   padding: 10px;
 }
+.terminal .cyan {
+  color: #22b1ad;
+}
+.terminal .red {
+  color: #dd115f;
+}
+.terminal .lighten-purple {
+  color: #372c5c;
+}
+.terminal .terminal-label .label-run {
+  margin-bottom: 5px;
+  display: flex;
+}
+.terminal .terminal-label .label-run .name {
+  margin-left: 10px;
+}
 .terminal .terminal-label .ascii-text {
   width: 0%;
   display: block;
   overflow: hidden;
   animation: 2s showText;
   width: 100%;
+}
+.terminal .terminal-content .info {
+  max-width: 425px;
+}
+.terminal .terminal-content .terminal-input {
+  display: flex;
+  width: 100%;
+}
+.terminal .terminal-content .terminal-input .path {
+  white-space: nowrap;
+}
+.terminal .terminal-content .terminal-input input {
+  width: 90%;
+  background: transparent;
+  border: none;
+  color: #22b1ad;
+  outline: none;
 }
 .terminal .terminal-content .group-btns button {
   background: transparent;

@@ -30,8 +30,8 @@
         <div class="container">
           <div class="terminal">
             <div class="terminal-label">
-              <div class="label-run">Run Portfolio</div>
-              <div class="label-timer" id="timer"></div>
+              <div class="label-run">Run <div class="name lighten-purple"> Portfolio</div></div>
+              <div class="label-timer lighten-purple" id="timer"/></div>
               <pre class="ascii-text">
 
                 ________  ___  _______   ___  ___  ________  _______   ________   _______                 
@@ -46,11 +46,30 @@
               </pre>
             </div>
             <div class="terminal-content">
-              <p>
+              <div class="terminal-input">
+                <div class="path cyan">admin > </div>
+                <input type="text" id="command" data-input="0" value="help">
+              </div>
+              <div class="help">
+                <ul>
+                  <li>about</li>
+                  <li>contacts</li>
+                  <li>clear</li>
+                </ul>
+              </div>
+              <div class="terminal-input">
+                <div class="path cyan">admin > </div>
+                <input type="text" id="command" data-input="1">
+              </div>
+              
+              <div class="about">
+
+              </div>
+              <div class="info">
                 Welcome to my website. My name is Eugene, I am a frontend
                 developer. The site is currently being developed, and the
                 content will appear in the future
-              </p>
+              </div>
               <div class="group-btns">
                 <button>
                   <a href="https://github.com/sieugene" target="_blank"

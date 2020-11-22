@@ -8,6 +8,15 @@
 }
 
 .terminal {
+  .cyan {
+    color: #22b1ad;
+  }
+  .red {
+    color: #dd115f;
+  }
+  .lighten-purple {
+    color: #372c5c;
+  }
   margin-top: 30px;
   margin-bottom: 30px;
   background-color: #211830;
@@ -15,6 +24,13 @@
   width: 100%;
   padding: 10px;
   .terminal-label {
+    .label-run {
+      margin-bottom: 5px;
+      display: flex;
+      .name {
+        margin-left: 10px;
+      }
+    }
     .ascii-text {
       width: 0%;
       display: block;
@@ -23,16 +39,33 @@
       width: 100%;
     }
   }
-  .terminal-content{
-    .group-btns{
-        button{
-            background: transparent;
-            border: 1px solid #22e2d9;
-            a{
-                color: white;
-                text-decoration: none;
-            }
+  .terminal-content {
+    .info {
+      max-width: 425px;
+    }
+    .terminal-input{
+      .path{
+        white-space: nowrap;
+      }
+      display: flex;
+      width: 100%;
+      input{
+        width: 90%;
+        background: transparent;
+        border: none;
+        color: #22b1ad;
+        outline: none;
+      }
+    }
+    .group-btns {
+      button {
+        background: transparent;
+        border: 1px solid #22e2d9;
+        a {
+          color: white;
+          text-decoration: none;
         }
+      }
     }
   }
 }

@@ -6,309 +6,71 @@
     <title>Sieugene</title>
     <link
       rel="shortcut icon"
-      href="./assets/img/logo.svg"
+      href="./assets/img/logo-small.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./assets/css/reset.min.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/bootstrap-grid.min.css" />
-    <link rel="stylesheet" href="./assets/css/animate.css" />
+    <link rel="stylesheet" href="./assets/dist/style.css" />
   </head>
 
   <body>
-    <div class="preload">
-      <div class="gooey">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
+    <div id="root">
+      <header>
+        <div class="container">
+          <object
+            type="image/svg+xml"
+            data="./assets/img/logo.svg"
+            width="43"
+            height="53"
+          >
+            <img src="./assets/img/logo.svg" />
+          </object>
         </div>
-      </div>
+      </header>
+      <main>
+        <div class="container">
+          <div class="terminal">
+            <div class="terminal-label">
+              <div class="label-run">Run Portfolio</div>
+              <div class="label-timer" id="timer"></div>
+              <pre class="ascii-text">
+
+                ________  ___  _______   ___  ___  ________  _______   ________   _______                 
+                |\   ____\|\  \|\  ___ \ |\  \|\  \|\   ____\|\  ___ \ |\   ___  \|\  ___ \                
+                \ \  \___|\ \  \ \   __/|\ \  \\\  \ \  \___|\ \   __/|\ \  \\ \  \ \   __/|    
+                 \ \_____  \ \  \ \  \_|/_\ \  \\\  \ \  \  __\ \  \_|/_\ \  \\ \  \ \  \_|/__  
+                  \|____|\  \ \  \ \  \_|\ \ \  \\\  \ \  \|\  \ \  \_|\ \ \  \\ \  \ \  \_|\ \ 
+                    ____\_\  \ \__\ \_______\ \_______\ \_______\ \_______\ \__\\ \__\ \_______\
+                   |\_________\|__|\|_______|\|_______|\|_______|\|_______|\|__| \|__|\|_______|
+                   \|_________|                                                                 
+                                                                                                                                                                           
+              </pre>
+            </div>
+            <div class="terminal-content">
+              <p>
+                Welcome to my website. My name is Eugene, I am a frontend
+                developer. The site is currently being developed, and the
+                content will appear in the future
+              </p>
+              <div class="group-btns">
+                <button>
+                  <a href="https://github.com/sieugene" target="_blank"
+                    >Github</a
+                  >
+                </button>
+                <button>
+                  <a
+                    href="https://www.linkedin.com/in/sieugene/"
+                    target="_blank"
+                    >LinkedIn</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
     </div>
-    <div class="modal">
-      <div class="container">
-        <div class="modal_top">
-          <div class="logo-item">
-            <a href="/">
-              <img src="./assets/img/logo_white.svg" alt="sieugene_logo" />
-            </a>
-          </div>
-          <div class="exit-item showModal">X</div>
-        </div>
-        <div class="modal_center">
-          <p>
-            I am a frontend developer from Russia. There are links below where
-            you can find me. I always try to develop and learn something new , I
-            also strive to write better code.
-          </p>
-        </div>
-        <div class="modal_down">
-          <div class="row">
-            <div class="col-xl-3 col-md-3 col-sm-4">
-              <a href="https://github.com/sieugene" target="_blank">Github</a>
-            </div>
-            <div class="col-xl-3 col-md-3 col-sm-4">
-              <a href="https://www.linkedin.com/in/sieugene/" target="_blank"
-                >LinkedIn</a
-              >
-            </div>
-            <div class="col-xl-3 col-md-3">
-              <p>Design and creation by Sieugene</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header class="header">
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="header__info-left">
-            <nav class="nav__top">
-              <a href="/">
-                <img src="./assets/img/logo.svg" alt="sieugene_logo" />
-              </a>
-              <a href="/" class="item__nav-top">Home</a>
-            </nav>
-            <div class="header__wrapper">
-              <div class="about__info">
-                <h1 class="about-main">Welcome</h1>
-                <img src="./assets/img/arrow_cons.svg" alt="cons" />
-                <p class="about-content">
-                  I am a web developer, I do web development on js, in
-                  particular on React. Below you can view my test tasks or own
-                  projects
-                </p>
-                <a href="/">
-                  <a class="about-btn showModal"> Contacts </a>
-                </a>
-              </div>
-            </div>
-            <nav class="nav__down">
-              <a href="" class="item__nav-top goToProjects">Projects</a>
-              <a href="" class="goToProjects">
-                <img src="./assets/img/arrow_down.svg" alt="goDown" />
-              </a>
-            </nav>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="header__info-right wow flash">
-            <div class="header__number-vector"></div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main class="main">
-      <div class="main__wrapper">
-        <div class="main__main-text">
-          <h2 class="main__text">React&Redux Projects</h2>
-          <img src="./assets/img/Line 1.svg" alt="" />
-        </div>
-        <div class="main__content" id="projects">
-          <!-- first card -->
-          <div
-            class="main__card wow slideInLeft"
-            data-wow-duration="2s"
-            data-wow-delay="0.3s"
-          >
-            <div class="left__gradient"></div>
-            <div class="row">
-              <div class="col-xl-6">
-                <div class="card_body">
-                  <h2 class="card__main__title">Social Network</h2>
-                  <p class="card__main__content">My first social network</p>
-                  <a
-                    href="https://github.com/sieugene/ReactLearning"
-                    target="_blank"
-                    class="link__card"
-                    >Link
-                    <img src="./assets/img/Vector.svg" alt="arrow" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-xl-6 mobile__ico">
-                <div class="right__img">
-                  <img src="./assets/img/image 3.jpg" alt="sc" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- second__new card  -->
-          <div
-            class="main__card wow slideInLeft"
-            data-wow-duration="2s"
-            data-wow-delay="0.3s"
-          >
-            <div class="left__gradient"></div>
-            <div class="row">
-              <div class="col-xl-6">
-                <div class="card_body">
-                  <h2 class="card__main__title">Schat</h2>
-                  <p class="card__main__content">
-                    Chat in realtime with advanced features
-                  </p>
-                  <a
-                    href="https://github.com/sieugene/Schat"
-                    target="_blank"
-                    class="link__card"
-                    >Link
-                    <img src="./assets/img/Vector.svg" alt="arrow" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-xl-6 mobile__ico">
-                <div class="right__img">
-                  <img src="./assets/img/image 9.jpg" alt="schat" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end -->
-          <!-- four card  -->
-          <div
-            class="main__card wow slideInLeft"
-            data-wow-duration="2s"
-            data-wow-delay="0.3s"
-          >
-            <div class="left__gradient"></div>
-            <div class="row">
-              <div class="col-xl-6">
-                <div class="card_body">
-                  <h2 class="card__main__title">MovieApp</h2>
-                  <p class="card__main__content">
-                    Test task from 'ЮнитБин'.SPA for viewing movies
-                  </p>
-                  <a
-                    href="https://github.com/sieugene/MovieApp"
-                    target="_blank"
-                    class="link__card"
-                    >Link
-                    <img src="./assets/img/Vector.svg" alt="arrow" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-xl-6 mobile__ico">
-                <div class="right__img">
-                  <img src="./assets/img/image 8.jpg" alt="movieApp" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end -->
-        </div>
-        <div class="main__main-text">
-          <h2 class="main__text">Angular projects</h2>
-          <img src="./assets/img/Line 1.svg" alt="" />
-        </div>
-        <div class="main__content" id="projects">
-          <!-- first card -->
-          <div
-            class="main__card wow slideInLeft"
-            data-wow-duration="2s"
-            data-wow-delay="0.3s"
-          >
-            <div class="left__gradient"></div>
-            <div class="row">
-              <div class="col-xl-6">
-                <div class="card_body">
-                  <h2 class="card__main__title">Todo app</h2>
-                  <p class="card__main__content">Simple todo app on angular</p>
-                  <a
-                    href="https://github.com/sieugene/ng-todo-spa"
-                    target="_blank"
-                    class="link__card"
-                    >Link
-                    <img src="./assets/img/Vector.svg" alt="arrow" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-xl-6 mobile__ico">
-                <div class="right__img">
-                  <img src="./assets/img/image 5.jpg" alt="sc" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <!-- <section class="other_content">
-      <div class="parallax"></div>
-    </section> -->
-    <section class="skills">
-      <div class="container">
-        <div class="block__skills">
-          <h1>My skills</h1>
-          <ul class="timeline">
-            <li class="timeline">
-              <div class="icon done"></div>
-              <details class="panel" open>
-                <summary>Languages and others</summary>
-                <ul>
-                  <li>SCSS</li>
-                  <li>React</li>
-                  <li>Typescript</li>
-                  <li>Redux</li>
-                  <li>Thunk</li>
-                  <li>Redux-saga</li>
-                  <li>ES6</li>
-                  <li>Bitbucket</li>
-                  <li>gitFlow</li>
-                  <li>Jira</li>
-                  <li>Figma</li>
-                </ul>
-              </details>
-            </li>
-            <li class="timeline">
-              <div class="icon done"></div>
-              <details class="panel" open>
-                <summary>Info</summary>
-                <p>
-                    The information on the site may not be relevant, as I am currently developing a new website
-                </p>
-              </details>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(".showModal").click(function () {
-        $(".modal").toggleClass("active");
-        $("body").toggleClass("active");
-      });
-      $(function () {
-        $(".goToProjects").on("click", function (e) {
-          $("html,body")
-            .stop()
-            .animate(
-              {
-                scrollTop: $("#projects").offset().top,
-              },
-              1000
-            );
-          e.preventDefault();
-        });
-      });
-    </script>
-    <script src="./assets/js/wow.min.js"></script>
-    <script>
-      new WOW().init();
-    </script>
-    <script>
-      window.onload = function () {
-        document.body.classList.add("loaded_hiding");
-        window.setTimeout(function () {
-          document.body.classList.add("loaded");
-          document.body.classList.remove("loaded_hiding");
-        }, 1500);
-      };
-    </script>
   </body>
+  <script type="text/javascript" src="./core/dist/index.dev.js"></script>
 </html>

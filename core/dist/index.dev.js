@@ -39,7 +39,12 @@ function () {
     key: "toHtml",
     value: function toHtml(el, template) {
       var $el = this.find(el);
-      $el.innerHTML = ($el.innerHTML + template).trim();
+
+      if (template && template === "clear" && $el) {
+        $el.innerHTML = "";
+      } else if ($el) {
+        $el.innerHTML = ($el.innerHTML + template).trim();
+      }
     } //Input
 
   }, {
@@ -52,9 +57,13 @@ function () {
   }, {
     key: "savePrevText",
     value: function savePrevText($el) {
-      var input = this.find("[data-input=\"".concat($el.dataset.input, "\"]"));
-      input.outerHTML = "<input \n                      type=\"text\" \n                      id=\"command\" \n                      data-input=\"".concat(input.dataset.input, "\" \n                      value=\"").concat($el.value, "\"\n                      disabled=\"true\">\n                      </input>");
-      input.value = $el.value;
+      var dataset = $el.dataset ? $el.dataset.input && $el.dataset.input : 0;
+      var input = this.find("[data-input=\"".concat(dataset, "\"]"));
+
+      if (input) {
+        input.outerHTML = "<input \n      type=\"text\" \n      id=\"command\" \n      data-input=\"".concat(dataset, "\" \n      value=\"").concat($el.value, "\"\n      disabled=\"true\">\n      </input>");
+        input.value = $el.value;
+      }
     }
   }, {
     key: "disableInput",
@@ -94,7 +103,7 @@ function () {
   }, {
     key: "focusOnLast",
     value: function focusOnLast() {
-      var inputs = this.findAll("#command");
+      var inputs = this.findAll("[data-type='input']");
       root.setInputs(inputs);
       var last = inputs[inputs.length - 1];
       last.focus();
@@ -150,17 +159,47 @@ function pressKey(event) {
 
   if (keys.includes(event.key)) {
     event.preventDefault();
+    root.toHtml(".terminal-content", commandInputs(root.$input.value));
     root.disableInput(root.$input);
   }
 }
 
-var commandInputs = function commandInputs() {
-  var input = root.find("[data-input='0']"); // debugger;
-}; // commandInputs();
-// Templates
+var commandInputs = function commandInputs(command) {
+  var template;
+
+  if (command && command.length >= 1) {
+    switch (command) {
+      case "contacts":
+        template = ContactsTemplate();
+        break;
+
+      case "clear":
+        template = "clear";
+        break;
+
+      case "help":
+        template = HelpTemplate();
+        break;
+
+      default:
+        template = "<div class=\"red\">command not found</div>";
+        break;
+    }
+  }
+
+  return template;
+}; // Templates
 
 
 var InputTemplate = function InputTemplate(id) {
   var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-  return "<div class=\"terminal-input\">\n  <div class=\"path cyan\">admin > </div>\n  <input type=\"text\" id=\"command\" data-input=\"".concat(id, "\" value=\"").concat(value, "\">\n</div>");
+  return "<div class=\"terminal-input\">\n  <div class=\"path cyan\">admin > </div>\n  <input type=\"text\" id=\"command".concat(id, "\" data-input=\"").concat(id, "\" value=\"").concat(value, "\" data-type=\"input\">\n</div>");
+};
+
+var ContactsTemplate = function ContactsTemplate() {
+  return "<div class=\"group-btns\">\n  <button>\n    <a href=\"https://github.com/sieugene\" target=\"_blank\"\n      >Github</a\n    >\n  </button>\n  <button>\n    <a\n      href=\"https://www.linkedin.com/in/sieugene/\"\n      target=\"_blank\"\n      >LinkedIn</a\n    >\n  </button>\n</div>";
+};
+
+var HelpTemplate = function HelpTemplate() {
+  return "<div class=\"help\">\n  <ul>\n    <li>about</li>\n    <li>contacts</li>\n    <li>clear</li>\n  </ul>\n</div>";
 };

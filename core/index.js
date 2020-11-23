@@ -20,7 +20,11 @@ class Core {
   }
   toHtml(el, template) {
     let $el = this.find(el);
-    $el.innerHTML = ($el.innerHTML + template).trim();
+    if (template && template === "clear" && $el) {
+      $el.innerHTML = "";
+    } else if ($el) {
+      $el.innerHTML = ($el.innerHTML + template).trim();
+    }
   }
   //Input
   setInput($el) {
@@ -29,18 +33,22 @@ class Core {
     $el.addEventListener("keydown", pressKey);
   }
   savePrevText($el) {
-    let input = this.find(`[data-input="${$el.dataset.input}"]`);
-    input.outerHTML = `<input 
-                      type="text" 
-                      id="command" 
-                      data-input="${input.dataset.input}" 
-                      value="${$el.value}"
-                      disabled="true">
-                      </input>`;
-    input.value = $el.value;
+    const dataset = $el.dataset ? $el.dataset.input && $el.dataset.input : 0;
+    let input = this.find(`[data-input="${dataset}"]`);
+    if (input) {
+      input.outerHTML = `<input 
+      type="text" 
+      id="command" 
+      data-input="${dataset}" 
+      value="${$el.value}"
+      disabled="true">
+      </input>`;
+      input.value = $el.value;
+    }
   }
   disableInput($el) {
     const id = Number($el.dataset.input) + 1;
+
     $el.removeEventListener("input", inputChange);
     $el.removeEventListener("keydown", pressKey);
     this.$input = null;
@@ -67,7 +75,7 @@ class Core {
     }
   }
   focusOnLast() {
-    const inputs = this.findAll("#command");
+    const inputs = this.findAll("[data-type='input']");
     root.setInputs(inputs);
     const last = inputs[inputs.length - 1];
     last.focus();
@@ -112,19 +120,62 @@ function pressKey(event) {
   const keys = ["Enter", "Tab"];
   if (keys.includes(event.key)) {
     event.preventDefault();
+    root.toHtml(".terminal-content", commandInputs(root.$input.value));
     root.disableInput(root.$input);
   }
 }
-const commandInputs = () => {
-  const input = root.find("[data-input='0']");
-  // debugger;
-};
-// commandInputs();
 
+const commandInputs = (command) => {
+  let template;
+  if (command && command.length >= 1) {
+    switch (command) {
+      case "contacts":
+        template = ContactsTemplate();
+        break;
+      case "clear":
+        template = "clear";
+        break;
+      case "help":
+        template = HelpTemplate();
+        break;
+      default:
+        template = `<div class="red">command not found</div>`;
+        break;
+    }
+  }
+  return template;
+};
 // Templates
 const InputTemplate = (id, value = "") => {
   return `<div class="terminal-input">
   <div class="path cyan">admin > </div>
-  <input type="text" id="command" data-input="${id}" value="${value}">
+  <input type="text" id="command${id}" data-input="${id}" value="${value}" data-type="input">
+</div>`;
+};
+
+const ContactsTemplate = () => {
+  return `<div class="group-btns">
+  <button>
+    <a href="https://github.com/sieugene" target="_blank"
+      >Github</a
+    >
+  </button>
+  <button>
+    <a
+      href="https://www.linkedin.com/in/sieugene/"
+      target="_blank"
+      >LinkedIn</a
+    >
+  </button>
+</div>`;
+};
+
+const HelpTemplate = () => {
+  return `<div class="help">
+  <ul>
+    <li>about</li>
+    <li>contacts</li>
+    <li>clear</li>
+  </ul>
 </div>`;
 };

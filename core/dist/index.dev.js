@@ -21,6 +21,7 @@ function () {
     this.inputs = [];
     this.$input = null;
     this.$help = null;
+    this.$theme = localStorage.getItem("theme");
   } //DOM
 
 
@@ -60,6 +61,16 @@ function () {
     key: "getData",
     value: function getData($el) {
       return $el.dataset;
+    }
+  }, {
+    key: "addClass",
+    value: function addClass($el, className) {
+      $el.classList.add(className);
+    }
+  }, {
+    key: "removeClass",
+    value: function removeClass($el, className) {
+      $el.classList.remove(className);
     } //Input
 
   }, {
@@ -122,10 +133,11 @@ function () {
       var _this = this;
 
       var terminal = this.find(".terminal");
-      terminal.addEventListener("click", function (event) {
+      this.$terminal = terminal;
+      this.$terminal.addEventListener("click", function (event) {
         var target = event.target;
 
-        if (target.className === "terminal") {
+        if (target.classList && target.classList.length && target.classList[0] === "terminal") {
           _this.focusOnLast.bind(_this)();
         }
       });
@@ -151,6 +163,31 @@ function () {
         });
         this.$help = null;
       }
+    }
+  }, {
+    key: "initTheme",
+    value: function initTheme() {
+      if (!this.$theme) {
+        localStorage.setItem("theme", "dark");
+        this.changeTheme("dark");
+      } else {
+        this.changeTheme(this.$theme);
+      }
+    }
+  }, {
+    key: "changeTheme",
+    value: function changeTheme(theme) {
+      if (theme === "white") {
+        this.removeClass(this.$terminal, "dark");
+        this.addClass(this.$terminal, theme);
+        this.$theme = theme;
+        localStorage.setItem("theme", theme);
+      } else {
+        this.removeClass(root.$terminal, "white");
+        this.addClass(root.$terminal, theme);
+        this.$theme = theme;
+        localStorage.setItem("theme", theme);
+      }
     } //Core
 
   }, {
@@ -158,6 +195,7 @@ function () {
     value: function init() {
       this.focusOnLast();
       this.terminalEventClick();
+      this.initTheme();
       this.disableInputs();
       this.helpEventClicks();
     }
@@ -201,15 +239,19 @@ function pressKey(event) {
 }
 
 function helpCommandsClick(event) {
+  var emulateEventClick = {
+    key: "Enter",
+    preventDefault: function preventDefault() {}
+  };
   var $target = event.target;
   var action = $target.dataset && $target.dataset.action && $target.dataset.action;
 
-  if (action) {
-    var emulateEventClick = {
-      key: "Enter",
-      preventDefault: function preventDefault() {}
-    };
+  if (action !== "theme") {
     root.$input.value = action;
+    pressKey(emulateEventClick);
+  } else {
+    var theme = root.$theme === "dark" ? "white" : "dark";
+    root.$input.value = "".concat(action, "=").concat(theme);
     pressKey(emulateEventClick);
   }
 } //functions
@@ -235,8 +277,23 @@ var commandInputs = function commandInputs(command) {
       template = AboutTemplate();
       break;
 
+    case "theme=white":
+      root.changeTheme("white");
+      template = "<div class=\"command-text lighten-purple\">theme switched to light</div>";
+      break;
+
+    case "theme=dark":
+      root.changeTheme("dark");
+      template = "<div class=\"command-text lighten-purple\">theme switched to dark</div>";
+      break;
+
+    case "theme":
+    case "theme=":
+      template = "<div class=\"command-text red\">specify dark or white</div>";
+      break;
+
     default:
-      template = "<div class=\"red\">command not found</div>";
+      template = "<div class=\"command-text red\">command not found</div>";
       break;
   }
 
@@ -252,7 +309,7 @@ var formatText = function formatText(text) {
 };
 
 var searchMatches = function searchMatches(text) {
-  var arr = ["contacts", "clear", "help", "about"];
+  var arr = ["contacts", "clear", "help", "about", "theme="];
   var res = arr.filter(function (el) {
     return el.indexOf(text) > -1;
   });
@@ -264,18 +321,18 @@ var InputTemplate = function InputTemplate(id) {
   var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
   var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "admin >";
   var disabled = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  var disableInput = disabled ? 'disabled' : '';
+  var disableInput = disabled ? "disabled" : "";
   return "<div class=\"terminal-input\">\n  <div class=\"path cyan\">".concat(path, "</div>\n  <input type=\"text\" id=\"command").concat(id, "\" data-input=\"").concat(id, "\" value=\"").concat(value && value.length >= 1 ? value : "", "\" data-type=\"input\" ").concat(disableInput, ">\n</div>");
 };
 
 var ContactsTemplate = function ContactsTemplate() {
-  return "<div class=\"group-btns\">\n  <button>\n    <a href=\"https://github.com/sieugene\" target=\"_blank\"\n      >Github</a\n    >\n  </button>\n  <button>\n    <a\n      href=\"https://www.linkedin.com/in/sieugene/\"\n      target=\"_blank\"\n      >LinkedIn</a\n    >\n  </button>\n</div>";
+  return "<div class=\"group-btns\">\n  <button>\n    <a href=\"https://github.com/sieugene\" target=\"_blank\"\n      >Github</a\n    >\n  </button>\n  <button>\n    <a\n      href=\"https://www.linkedin.com/in/sieugene/\"\n      target=\"_blank\"\n      >LinkedIn</a\n    >\n  </button>\n  <button>\n  <a\n    href=\"mailto:sieugene@mail.ru\"\n    >Mail</a\n  >\n</button>\n</div>";
 };
 
 var HelpTemplate = function HelpTemplate() {
-  return "\n  <div class=\"help\" data-type=\"help\">\n  <ul>\n    <li class=\"purple\" data-action=\"about\">about</li>\n    <li class=\"purple\" data-action=\"contacts\">contacts</li>\n    <li class=\"purple\" data-action=\"clear\">clear</li>\n  </ul>\n  <ul>\n    <li class=\"cyan\" data-action=\"about\">information about me</li>\n    <li class=\"cyan\" data-action=\"contacts\">my contacts</li>\n    <li class=\"cyan\" data-action=\"clear\">clearing the terminal</li>\n  </ul>\n</div>\n  ";
+  return "\n  <div class=\"help\" data-type=\"help\">\n  <div class=\"help-text\" class=\"purple\" data-action=\"help\">\n    <div class=\"purple name-help\" data-action=\"help\">\n      help\n    </div>\n    <div class=\"cyan desc-help\" data-action=\"help\">\n      help information\n    </div>\n  </div>\n  <div class=\"help-text\" class=\"purple\" data-action=\"about\">\n    <div class=\"purple name-help\" data-action=\"about\">\n      about\n    </div>\n    <div class=\"cyan desc-help\" data-action=\"about\">\n      information about me\n    </div>\n  </div>\n  <div class=\"help-text\" class=\"purple\" data-action=\"contacts\">\n    <div class=\"purple name-help\" data-action=\"contacts\">\n      contacts\n    </div>\n    <div class=\"cyan desc-help\" data-action=\"contacts\">\n      my contacts\n    </div>\n  </div>\n  <div class=\"help-text\" class=\"purple\" data-action=\"clear\">\n    <div class=\"purple name-help\" data-action=\"clear\">\n      clear\n    </div>\n    <div class=\"cyan desc-help\" data-action=\"clear\">\n      clearing the terminal\n    </div>\n  </div>\n  <div class=\"help-text\" class=\"purple\" data-action=\"theme\">\n    <div class=\"purple name-help\" data-action=\"theme\">\n      theme\n    </div>\n    <div class=\"cyan desc-help\" data-action=\"theme\">\n      changes the subject of the terminal, an example of the theme=dark ; theme=white\n    </div>\n  </div>\n</div>\n  ";
 };
 
 var AboutTemplate = function AboutTemplate() {
-  return "\n  <div class=\"info\">\n  Welcome to my website. My name is Eugene, I am a frontend\n  developer. The site is currently being developed, and the\n  content will appear in the future\n</div>\n  ";
+  return "\n  <div class=\"info\">\n  My name is Eugene, I am a frontend developer, the main stack of react redux.\n</div>\n  ";
 };

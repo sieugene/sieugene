@@ -9,6 +9,7 @@ class Core {
     this.inputs = [];
     this.$input = null;
     this.$help = null;
+    this.$theme = localStorage.getItem("theme");
   }
   //DOM
   find(selector) {
@@ -36,6 +37,12 @@ class Core {
   getData($el) {
     return $el.dataset;
   }
+  addClass($el, className) {
+    $el.classList.add(className);
+  }
+  removeClass($el, className) {
+    $el.classList.remove(className);
+  }
   //Input
   setInput($el) {
     this.$input = $el;
@@ -52,7 +59,7 @@ class Core {
     const dataset = `[data-input="${this.getData($el).input}"]`;
     this.toOuter(
       dataset ? dataset : 0,
-      InputTemplate($el.dataset.input, $el.value, "",true)
+      InputTemplate($el.dataset.input, $el.value, "", true)
     );
   }
   addInput(id) {
@@ -84,9 +91,14 @@ class Core {
   //Terminal
   terminalEventClick() {
     const terminal = this.find(".terminal");
-    terminal.addEventListener("click", (event) => {
+    this.$terminal = terminal;
+    this.$terminal.addEventListener("click", (event) => {
       const target = event.target;
-      if (target.className === "terminal") {
+      if (
+        target.classList &&
+        target.classList.length &&
+        target.classList[0] === "terminal"
+      ) {
         this.focusOnLast.bind(this)();
       }
     });
@@ -109,10 +121,32 @@ class Core {
       this.$help = null;
     }
   }
+  initTheme() {
+    if (!this.$theme) {
+      localStorage.setItem("theme", "dark");
+      this.changeTheme("dark");
+    } else {
+      this.changeTheme(this.$theme);
+    }
+  }
+  changeTheme(theme) {
+    if (theme === "white") {
+      this.removeClass(this.$terminal, "dark");
+      this.addClass(this.$terminal, theme);
+      this.$theme = theme;
+      localStorage.setItem("theme", theme);
+    } else {
+      this.removeClass(root.$terminal, "white");
+      this.addClass(root.$terminal, theme);
+      this.$theme = theme;
+      localStorage.setItem("theme", theme);
+    }
+  }
   //Core
   init() {
     this.focusOnLast();
     this.terminalEventClick();
+    this.initTheme();
     this.disableInputs();
     this.helpEventClicks();
   }
@@ -153,15 +187,19 @@ function pressKey(event) {
   }
 }
 function helpCommandsClick(event) {
+  const emulateEventClick = {
+    key: "Enter",
+    preventDefault: () => {},
+  };
   const $target = event.target;
   const action =
     $target.dataset && $target.dataset.action && $target.dataset.action;
-  if (action) {
-    const emulateEventClick = {
-      key: "Enter",
-      preventDefault: () => {},
-    };
+  if (action !== "theme") {
     root.$input.value = action;
+    pressKey(emulateEventClick);
+  } else {
+    const theme = root.$theme === "dark" ? "white" : "dark";
+    root.$input.value = `${action}=${theme}`;
     pressKey(emulateEventClick);
   }
 }
@@ -181,8 +219,20 @@ const commandInputs = (command) => {
     case "about":
       template = AboutTemplate();
       break;
+    case "theme=white":
+      root.changeTheme("white");
+      template = `<div class="command-text lighten-purple">theme switched to light</div>`;
+      break;
+    case "theme=dark":
+      root.changeTheme("dark");
+      template = `<div class="command-text lighten-purple">theme switched to dark</div>`;
+      break;
+    case "theme":
+    case "theme=":
+      template = `<div class="command-text red">specify dark or white</div>`;
+      break;
     default:
-      template = `<div class="red">command not found</div>`;
+      template = `<div class="command-text red">command not found</div>`;
       break;
   }
   return template;
@@ -195,15 +245,15 @@ const formatText = (text) => {
   }
 };
 const searchMatches = (text) => {
-  let arr = ["contacts", "clear", "help", "about"];
+  let arr = ["contacts", "clear", "help", "about", "theme="];
   let res = arr.filter(function (el) {
     return el.indexOf(text) > -1;
   });
   return text && text.length >= 1 && res && res.length >= 1 ? res[0] : text;
 };
 // Templates
-const InputTemplate = (id, value = "", path = "admin >",disabled = false) => {
-  const disableInput = disabled ? 'disabled' : ''
+const InputTemplate = (id, value = "", path = "admin >", disabled = false) => {
+  const disableInput = disabled ? "disabled" : "";
   return `<div class="terminal-input">
   <div class="path cyan">${path}</div>
   <input type="text" id="command${id}" data-input="${id}" value="${
@@ -226,22 +276,58 @@ const ContactsTemplate = () => {
       >LinkedIn</a
     >
   </button>
+  <button>
+  <a
+    href="mailto:sieugene@mail.ru"
+    >Mail</a
+  >
+</button>
 </div>`;
 };
 
 const HelpTemplate = () => {
   return `
   <div class="help" data-type="help">
-  <ul>
-    <li class="purple" data-action="about">about</li>
-    <li class="purple" data-action="contacts">contacts</li>
-    <li class="purple" data-action="clear">clear</li>
-  </ul>
-  <ul>
-    <li class="cyan" data-action="about">information about me</li>
-    <li class="cyan" data-action="contacts">my contacts</li>
-    <li class="cyan" data-action="clear">clearing the terminal</li>
-  </ul>
+  <div class="help-text" class="purple" data-action="help">
+    <div class="purple name-help" data-action="help">
+      help
+    </div>
+    <div class="cyan desc-help" data-action="help">
+      help information
+    </div>
+  </div>
+  <div class="help-text" class="purple" data-action="about">
+    <div class="purple name-help" data-action="about">
+      about
+    </div>
+    <div class="cyan desc-help" data-action="about">
+      information about me
+    </div>
+  </div>
+  <div class="help-text" class="purple" data-action="contacts">
+    <div class="purple name-help" data-action="contacts">
+      contacts
+    </div>
+    <div class="cyan desc-help" data-action="contacts">
+      my contacts
+    </div>
+  </div>
+  <div class="help-text" class="purple" data-action="clear">
+    <div class="purple name-help" data-action="clear">
+      clear
+    </div>
+    <div class="cyan desc-help" data-action="clear">
+      clearing the terminal
+    </div>
+  </div>
+  <div class="help-text" class="purple" data-action="theme">
+    <div class="purple name-help" data-action="theme">
+      theme
+    </div>
+    <div class="cyan desc-help" data-action="theme">
+      changes the subject of the terminal, an example of the theme=dark ; theme=white
+    </div>
+  </div>
 </div>
   `;
 };
@@ -249,9 +335,7 @@ const HelpTemplate = () => {
 const AboutTemplate = () => {
   return `
   <div class="info">
-  Welcome to my website. My name is Eugene, I am a frontend
-  developer. The site is currently being developed, and the
-  content will appear in the future
+  My name is Eugene, I am a frontend developer, the main stack of react redux.
 </div>
   `;
 };

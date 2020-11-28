@@ -222,15 +222,16 @@ timer(); //event Handlers
 function inputChange(event) {}
 
 function pressKey(event) {
-  var keys = ["Enter"];
-  var autoComplete = ["Tab", "Space"];
+  var keys = ["enter"];
+  var autoComplete = ["tab", "space"];
+  var autoCompleteKeyCode = [32];
 
-  if (keys.includes(event.key)) {
+  if (keys.includes(event.key.toLowerCase())) {
     event.preventDefault();
     root.toHtml(".terminal-content", commandInputs(formatText(root.$input.value)));
     root.disableInput(root.$input);
     root.helpEventClicks();
-  } else if (autoComplete.includes(event.code)) {
+  } else if (autoComplete.includes(event.key.toLowerCase()) || autoCompleteKeyCode.includes(event.keyCode)) {
     event.preventDefault();
     var text = formatText(root.$input.value);
     var match = searchMatches(text);

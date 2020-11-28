@@ -236,7 +236,7 @@ function getCode(event) {
 
 function pressKey(event) {
   var keys = ["enter"];
-  var autoComplete = ["tab", "space", " ", "backspace"];
+  var autoComplete = ["tab", "space", " "];
   var autoCompleteKeyCode = [32];
   var key = getCode(event);
 

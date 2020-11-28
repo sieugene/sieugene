@@ -183,6 +183,8 @@ function pressKey(event) {
   const autoComplete = ["tab", "space", " "];
   const autoCompleteKeyCode = [32];
   const key = getCode(event);
+  alert(key)
+  alert(event.code)
   if (keys.includes(key.toLowerCase())) {
     event.preventDefault();
     root.toHtml(

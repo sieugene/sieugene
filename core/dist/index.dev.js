@@ -236,11 +236,9 @@ function getCode(event) {
 
 function pressKey(event) {
   var keys = ["enter"];
-  var autoComplete = ["tab", "space", " "];
+  var autoComplete = ["tab", "space", " ", "backspace"];
   var autoCompleteKeyCode = [32];
   var key = getCode(event);
-  alert(key);
-  alert(event.code);
 
   if (keys.includes(key.toLowerCase())) {
     event.preventDefault();

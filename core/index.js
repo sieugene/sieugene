@@ -180,11 +180,9 @@ function getCode(event) {
 }
 function pressKey(event) {
   const keys = ["enter"];
-  const autoComplete = ["tab", "space", " "];
+  const autoComplete = ["tab", "space", " ", "backspace"];
   const autoCompleteKeyCode = [32];
   const key = getCode(event);
-  alert(key)
-  alert(event.code)
   if (keys.includes(key.toLowerCase())) {
     event.preventDefault();
     root.toHtml(

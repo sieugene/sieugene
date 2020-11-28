@@ -10,7 +10,7 @@
   margin-top: 30px;
   margin-bottom: 30px;
   background-color: #211830;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding: 10px;
 }
@@ -22,6 +22,9 @@
 }
 .terminal .lighten-purple {
   color: #372c5c;
+}
+.terminal .purple {
+  color: #7e12ca;
 }
 .terminal .terminal-label .label-run {
   margin-bottom: 5px;
@@ -38,11 +41,16 @@
   width: 100%;
 }
 .terminal .terminal-content .info {
+  margin-top: 10px;
+  margin-bottom: 10px;
   max-width: 425px;
 }
 .terminal .terminal-content .terminal-input {
   display: flex;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 .terminal .terminal-content .terminal-input .path {
   white-space: nowrap;
@@ -54,6 +62,13 @@
   color: #22b1ad;
   outline: none;
 }
+.terminal .terminal-content .terminal-input input:disabled {
+  width: auto;
+}
+.terminal .terminal-content .group-btns {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .terminal .terminal-content .group-btns button {
   background: transparent;
   border: 1px solid #22e2d9;
@@ -61,4 +76,18 @@
 .terminal .terminal-content .group-btns button a {
   color: white;
   text-decoration: none;
+}
+.terminal .terminal-content .help {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+.terminal .terminal-content .help ul {
+  margin: 0;
+  margin-right: 60px;
+  padding: 0;
+}
+.terminal .terminal-content .help ul li {
+  list-style: none;
+  margin-bottom: 5px;
 }

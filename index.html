@@ -50,19 +50,21 @@
                 <div class="path cyan">admin > </div>
                 <input type="text" id="command1" data-input="0" value="help" data-type="input">
               </div>
-              <div class="help">
+              <div class="help" data-type="help">
                 <ul>
-                  <li>about</li>
-                  <li>contacts</li>
-                  <li>clear</li>
+                  <li class="purple" data-action="about">about</li>
+                  <li class="purple" data-action="contacts">contacts</li>
+                  <li class="purple" data-action="clear">clear</li>
+                </ul>
+                <ul>
+                  <li class="cyan" data-action="about">information about me</li>
+                  <li class="cyan" data-action="contacts">my contacts</li>
+                  <li class="cyan" data-action="clear">clearing the terminal</li>
                 </ul>
               </div>
               <div class="terminal-input">
                 <div class="path cyan">admin ></div>
                 <input type="text" id="command2" data-input="1" value="about" data-type="input">
-              </div>
-              <div class="about">
-
               </div>
               <div class="info">
                 Welcome to my website. My name is Eugene, I am a frontend

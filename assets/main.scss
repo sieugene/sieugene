@@ -17,10 +17,13 @@
   .lighten-purple {
     color: #372c5c;
   }
+  .purple {
+    color: #7e12ca;
+  }
   margin-top: 30px;
   margin-bottom: 30px;
   background-color: #211830;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding: 10px;
   .terminal-label {
@@ -41,29 +44,53 @@
   }
   .terminal-content {
     .info {
+      margin-top: 10px;
+      margin-bottom: 10px;
       max-width: 425px;
     }
-    .terminal-input{
-      .path{
+    .terminal-input {
+      .path {
         white-space: nowrap;
       }
       display: flex;
       width: 100%;
-      input{
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      input {
         width: 90%;
         background: transparent;
         border: none;
         color: #22b1ad;
         outline: none;
+        &:disabled {
+          width: auto;
+        }
       }
     }
     .group-btns {
+      margin-top: 10px;
+      margin-bottom: 10px;
       button {
         background: transparent;
         border: 1px solid #22e2d9;
         a {
           color: white;
           text-decoration: none;
+        }
+      }
+    }
+    .help {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      ul {
+        margin: 0;
+        margin-right: 60px;
+        padding: 0;
+        li {
+          list-style: none;
+          margin-bottom: 5px;
         }
       }
     }

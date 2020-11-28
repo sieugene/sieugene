@@ -52,7 +52,7 @@ class Core {
     const dataset = `[data-input="${this.getData($el).input}"]`;
     this.toOuter(
       dataset ? dataset : 0,
-      InputTemplate($el.dataset.input, $el.value, "")
+      InputTemplate($el.dataset.input, $el.value, "",true)
     );
   }
   addInput(id) {
@@ -202,12 +202,13 @@ const searchMatches = (text) => {
   return text && text.length >= 1 && res && res.length >= 1 ? res[0] : text;
 };
 // Templates
-const InputTemplate = (id, value = "", path = "admin >") => {
+const InputTemplate = (id, value = "", path = "admin >",disabled = false) => {
+  const disableInput = disabled ? 'disabled' : ''
   return `<div class="terminal-input">
   <div class="path cyan">${path}</div>
   <input type="text" id="command${id}" data-input="${id}" value="${
     value && value.length >= 1 ? value : ""
-  }" data-type="input">
+  }" data-type="input" ${disableInput}>
 </div>`;
 };
 

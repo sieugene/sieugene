@@ -79,7 +79,7 @@ function () {
       this.addInput(id); //сохранение прошлого инпута
 
       var dataset = "[data-input=\"".concat(this.getData($el).input, "\"]");
-      this.toOuter(dataset ? dataset : 0, InputTemplate($el.dataset.input, $el.value, ""));
+      this.toOuter(dataset ? dataset : 0, InputTemplate($el.dataset.input, $el.value, "", true));
     }
   }, {
     key: "addInput",
@@ -263,7 +263,9 @@ var searchMatches = function searchMatches(text) {
 var InputTemplate = function InputTemplate(id) {
   var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
   var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "admin >";
-  return "<div class=\"terminal-input\">\n  <div class=\"path cyan\">".concat(path, "</div>\n  <input type=\"text\" id=\"command").concat(id, "\" data-input=\"").concat(id, "\" value=\"").concat(value && value.length >= 1 ? value : "", "\" data-type=\"input\">\n</div>");
+  var disabled = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  var disableInput = disabled ? 'disabled' : '';
+  return "<div class=\"terminal-input\">\n  <div class=\"path cyan\">".concat(path, "</div>\n  <input type=\"text\" id=\"command").concat(id, "\" data-input=\"").concat(id, "\" value=\"").concat(value && value.length >= 1 ? value : "", "\" data-type=\"input\" ").concat(disableInput, ">\n</div>");
 };
 
 var ContactsTemplate = function ContactsTemplate() {

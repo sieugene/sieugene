@@ -168,11 +168,22 @@ timer();
 
 //event Handlers
 function inputChange(event) {}
+function getCode(event) {
+  // Another browsers
+  const currentCode = event.which || event.code;
+  let currentKey = event.key;
+  if (!currentKey) {
+    currentKey = String.fromCharCode(currentCode);
+  }
+  // event.preventDefault();
+  return currentKey;
+}
 function pressKey(event) {
   const keys = ["enter"];
   const autoComplete = ["tab", "space"];
   const autoCompleteKeyCode = [32];
-  if (keys.includes(event.key.toLowerCase())) {
+  const key = getCode(event);
+  if (keys.includes(key.toLowerCase())) {
     event.preventDefault();
     root.toHtml(
       ".terminal-content",
@@ -181,7 +192,7 @@ function pressKey(event) {
     root.disableInput(root.$input);
     root.helpEventClicks();
   } else if (
-    autoComplete.includes(event.key.toLowerCase()) ||
+    autoComplete.includes(key.toLowerCase()) ||
     autoCompleteKeyCode.includes(event.keyCode)
   ) {
     event.preventDefault();

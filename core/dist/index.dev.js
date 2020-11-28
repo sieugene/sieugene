@@ -221,17 +221,31 @@ timer(); //event Handlers
 
 function inputChange(event) {}
 
+function getCode(event) {
+  // Another browsers
+  var currentCode = event.which || event.code;
+  var currentKey = event.key;
+
+  if (!currentKey) {
+    currentKey = String.fromCharCode(currentCode);
+  } // event.preventDefault();
+
+
+  return currentKey;
+}
+
 function pressKey(event) {
   var keys = ["enter"];
   var autoComplete = ["tab", "space"];
   var autoCompleteKeyCode = [32];
+  var key = getCode(event);
 
-  if (keys.includes(event.key.toLowerCase())) {
+  if (keys.includes(key.toLowerCase())) {
     event.preventDefault();
     root.toHtml(".terminal-content", commandInputs(formatText(root.$input.value)));
     root.disableInput(root.$input);
     root.helpEventClicks();
-  } else if (autoComplete.includes(event.key.toLowerCase()) || autoCompleteKeyCode.includes(event.keyCode)) {
+  } else if (autoComplete.includes(key.toLowerCase()) || autoCompleteKeyCode.includes(event.keyCode)) {
     event.preventDefault();
     var text = formatText(root.$input.value);
     var match = searchMatches(text);

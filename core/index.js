@@ -168,22 +168,33 @@ timer();
 
 //event Handlers
 function inputChange(event) {}
-function getCode(event) {
-  // Another browsers
-  const currentCode = event.which || event.code;
-  let currentKey = event.key;
-  if (!currentKey) {
-    currentKey = String.fromCharCode(currentCode);
+function supportSpace(event) {
+  //Unidentified - for android
+  const keySpace = [
+    " ",
+    "Unidentified",
+    "unidentified",
+    229,
+    32,
+    "Space",
+    "space",
+  ];
+  const condition =
+    keySpace.includes(event.code) ||
+    keySpace.includes(event.which) ||
+    keySpace.includes(event.key);
+  if (condition) {
+    return true;
+  } else {
+    return false;
   }
-  // event.preventDefault();
-  return currentKey;
 }
 function pressKey(event) {
   const keys = ["enter"];
   const autoComplete = ["tab", "space", " "];
-  const autoCompleteKeyCode = [32];
-  const key = getCode(event);
-  if (keys.includes(key.toLowerCase())) {
+  const conditionSpaceCode =
+    supportSpace(event) || autoComplete.includes(event.code.toLowerCase());
+  if (keys.includes(event.code.toLowerCase())) {
     event.preventDefault();
     root.toHtml(
       ".terminal-content",
@@ -191,10 +202,7 @@ function pressKey(event) {
     );
     root.disableInput(root.$input);
     root.helpEventClicks();
-  } else if (
-    autoComplete.includes(key.toLowerCase()) ||
-    autoCompleteKeyCode.includes(event.keyCode)
-  ) {
+  } else if (conditionSpaceCode) {
     event.preventDefault();
     const text = formatText(root.$input.value);
     const match = searchMatches(text);
@@ -204,6 +212,7 @@ function pressKey(event) {
 function helpCommandsClick(event) {
   const emulateEventClick = {
     key: "Enter",
+    code: "Enter",
     preventDefault: () => {},
   };
   const $target = event.target;

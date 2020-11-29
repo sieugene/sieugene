@@ -170,19 +170,10 @@ timer();
 function inputChange(event) {}
 function supportSpace(event) {
   //Unidentified - for android
-  const keySpace = [
-    " ",
-    // "Unidentified",
-    // "unidentified",
-    229,
-    32,
-    "Space",
-    "space",
-  ];
+  const keySpace = [229, 32];
   const condition =
-    keySpace.includes(event.code) ||
-    keySpace.includes(event.which) ||
-    keySpace.includes(event.key);
+    keySpace.includes(event.which) || keySpace.includes(event.keyCode);
+
   if (condition) {
     return true;
   } else {

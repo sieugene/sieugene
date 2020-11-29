@@ -167,12 +167,20 @@ const timer = () => {
 timer();
 
 //event Handlers
-function inputChange(event) {}
+function inputChange(event) {
+  //mobile space search
+  if (supportSpace(event)) {
+    pressKey(event);
+  }
+}
 function supportSpace(event) {
   //Unidentified - for android
   const keySpace = [32];
+  var keyCode = event.target.value
+    .charAt(event.target.selectionStart - 1)
+    .charCodeAt();
   const condition =
-    keySpace.includes(event.which) || keySpace.includes(event.keyCode);
+    keySpace.includes(event.which) || keySpace.includes(keyCode);
   if (condition) {
     return true;
   } else {
@@ -182,8 +190,7 @@ function supportSpace(event) {
 function pressKey(event) {
   const keys = ["enter"];
   const autoComplete = ["tab", "space", " "];
-  const conditionSpaceCode =
-    supportSpace(event) || autoComplete.includes(event.code.toLowerCase());
+
   if (keys.includes(event.code.toLowerCase())) {
     event.preventDefault();
     root.toHtml(
@@ -192,7 +199,7 @@ function pressKey(event) {
     );
     root.disableInput(root.$input);
     root.helpEventClicks();
-  } else if (conditionSpaceCode) {
+  } else if (autoComplete.includes(event.code.toLowerCase())) {
     event.preventDefault();
     const text = formatText(root.$input.value);
     const match = searchMatches(text);

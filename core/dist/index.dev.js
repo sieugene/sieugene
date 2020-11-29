@@ -219,12 +219,18 @@ var timer = function timer() {
 
 timer(); //event Handlers
 
-function inputChange(event) {}
+function inputChange(event) {
+  //mobile space search
+  if (supportSpace(event)) {
+    pressKey(event);
+  }
+}
 
 function supportSpace(event) {
   //Unidentified - for android
   var keySpace = [32];
-  var condition = keySpace.includes(event.which) || keySpace.includes(event.keyCode);
+  var keyCode = event.target.value.charAt(event.target.selectionStart - 1).charCodeAt();
+  var condition = keySpace.includes(event.which) || keySpace.includes(keyCode);
 
   if (condition) {
     return true;
@@ -236,14 +242,13 @@ function supportSpace(event) {
 function pressKey(event) {
   var keys = ["enter"];
   var autoComplete = ["tab", "space", " "];
-  var conditionSpaceCode = supportSpace(event) || autoComplete.includes(event.code.toLowerCase());
 
   if (keys.includes(event.code.toLowerCase())) {
     event.preventDefault();
     root.toHtml(".terminal-content", commandInputs(formatText(root.$input.value)));
     root.disableInput(root.$input);
     root.helpEventClicks();
-  } else if (conditionSpaceCode) {
+  } else if (autoComplete.includes(event.code.toLowerCase())) {
     event.preventDefault();
     var text = formatText(root.$input.value);
     var match = searchMatches(text);

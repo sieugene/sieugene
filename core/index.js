@@ -193,7 +193,7 @@ function supportSpace(event) {
 }
 function pressKey(event) {
   const keys = ["enter", 13];
-  const autoComplete = ["tab", "space", " "];
+  const autoComplete = ["tab", "space", " ", 32];
   const enterCondition =
     keys.includes(event.code.toLowerCase()) ||
     keys.includes(event.which) ||

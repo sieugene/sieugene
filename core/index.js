@@ -169,11 +169,11 @@ timer();
 //event Handlers
 function inputChange(event) {
   //mobile space search
-  if (supportSpace(event)) {
-    pressKey(event);
-  } else {
-    pressKey(event);
-  }
+  // if (supportSpace(event)) {
+  //   pressKey(event);
+  // } else {
+  //   pressKey(event);
+  // }
 }
 function supportSpace(event) {
   //Unidentified - for android

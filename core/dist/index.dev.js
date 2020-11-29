@@ -219,13 +219,12 @@ var timer = function timer() {
 
 timer(); //event Handlers
 
-function inputChange(event) {
-  //mobile space search
-  if (supportSpace(event)) {
-    pressKey(event);
-  } else {
-    pressKey(event);
-  }
+function inputChange(event) {//mobile space search
+  // if (supportSpace(event)) {
+  //   pressKey(event);
+  // } else {
+  //   pressKey(event);
+  // }
 }
 
 function supportSpace(event) {

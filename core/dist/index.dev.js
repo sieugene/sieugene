@@ -223,7 +223,9 @@ function inputChange(event) {}
 
 function supportSpace(event) {
   //Unidentified - for android
-  var keySpace = [" ", "Unidentified", "unidentified", 229, 32, "Space", "space"];
+  var keySpace = [" ", // "Unidentified",
+  // "unidentified",
+  229, 32, "Space", "space"];
   var condition = keySpace.includes(event.code) || keySpace.includes(event.which) || keySpace.includes(event.key);
 
   if (condition) {

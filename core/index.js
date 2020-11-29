@@ -172,8 +172,8 @@ function supportSpace(event) {
   //Unidentified - for android
   const keySpace = [
     " ",
-    "Unidentified",
-    "unidentified",
+    // "Unidentified",
+    // "unidentified",
     229,
     32,
     "Space",

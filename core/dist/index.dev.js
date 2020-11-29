@@ -223,6 +223,8 @@ function inputChange(event) {
   //mobile space search
   if (supportSpace(event)) {
     pressKey(event);
+  } else {
+    pressKey(event);
   }
 }
 

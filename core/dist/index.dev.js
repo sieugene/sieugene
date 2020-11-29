@@ -223,7 +223,7 @@ function inputChange(event) {}
 
 function supportSpace(event) {
   //Unidentified - for android
-  var keySpace = [229, 32];
+  var keySpace = [32];
   var condition = keySpace.includes(event.which) || keySpace.includes(event.keyCode);
 
   if (condition) {

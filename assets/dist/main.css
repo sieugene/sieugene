@@ -60,7 +60,9 @@
   margin-bottom: 10px;
   padding: 5px;
 }
-.terminal .terminal-content .instruction p {
+.terminal .terminal-content .instruction h1 {
+  font-size: 16px;
+  font-weight: 400;
   color: #e11a1a;
 }
 .terminal .terminal-content .instruction .features .feature-wrap {
@@ -81,6 +83,14 @@
   margin-top: 10px;
   margin-bottom: 10px;
   max-width: 425px;
+}
+.terminal .terminal-content .info h2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: brown;
+}
+.terminal .terminal-content .info .skills-short {
+  margin: 0;
 }
 .terminal .terminal-content .terminal-input {
   display: flex;
@@ -180,7 +190,7 @@
   }
 }
 
-@media screen and (max-width: 200px) {
+@media screen and (max-width: 250px) {
   #root {
     overflow: hidden;
   }

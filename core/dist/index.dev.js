@@ -249,7 +249,7 @@ function pressKey(event) {
     event.preventDefault();
     var text = formatText(root.$input.value);
     var match = searchMatches(text);
-    root.$input.value = match;
+    root.$input.value = match + " ";
   }
 }
 
@@ -351,5 +351,5 @@ var HelpTemplate = function HelpTemplate() {
 };
 
 var AboutTemplate = function AboutTemplate() {
-  return "\n  <div class=\"info\">\n  My name is Eugene, I am a frontend developer, the main stack of react redux.\n</div>\n  ";
+  return "\n  <div class=\"info\">\n  My name is Eugene, I am a frontend developer, the main stack of react redux.\n  <h2>What I use most often:</h2>\n  <div class=\"skills-short\">\n    <ul>\n      <li>react</li>\n      <li>redux</li>\n      <li>thunk</li>\n      <li>scss</li>\n      <li>redux-saga</li>\n      <li>typescript</li>\n    </ul>\n  </div> \n</div>\n  ";
 };

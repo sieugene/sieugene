@@ -208,7 +208,7 @@ function pressKey(event) {
     event.preventDefault();
     const text = formatText(root.$input.value);
     const match = searchMatches(text);
-    root.$input.value = match;
+    root.$input.value = match + " ";
   }
 }
 function helpCommandsClick(event) {
@@ -363,6 +363,17 @@ const AboutTemplate = () => {
   return `
   <div class="info">
   My name is Eugene, I am a frontend developer, the main stack of react redux.
+  <h2>What I use most often:</h2>
+  <div class="skills-short">
+    <ul>
+      <li>react</li>
+      <li>redux</li>
+      <li>thunk</li>
+      <li>scss</li>
+      <li>redux-saga</li>
+      <li>typescript</li>
+    </ul>
+  </div> 
 </div>
   `;
 };

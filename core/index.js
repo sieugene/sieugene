@@ -46,12 +46,12 @@ class Core {
   //Input
   setInput($el) {
     this.$input = $el;
-    $el.addEventListener("textInput", inputChange);
+    $el.addEventListener("keypress", inputChange);
     $el.addEventListener("keydown", pressKey);
   }
   disableInput($el) {
     const id = Number($el.dataset.input) + 1;
-    $el.removeEventListener("textInput", inputChange);
+    $el.removeEventListener("keypress", inputChange);
     $el.removeEventListener("keydown", pressKey);
     this.$input = null;
     this.addInput(id);
@@ -169,16 +169,25 @@ timer();
 //event Handlers
 function inputChange(event) {
   const debug = document.querySelector(".debug");
-  var code = event.data.charCodeAt(0);
-  debug.innerHTML = code;
-  // keyCode is ASCII of character entered.
 
-  //mobile space search
-  // if (supportSpace(event)) {
-  //   pressKey(event);
-  // } else {
-  //   pressKey(event);
-  // }
+  console.log(event.which);
+  const html = () => {
+    return `<div>
+      which: ${event.which}
+      <br/>
+      charCode ${event.charCode}
+      <br/>
+      KeyG ${event.KeyG}
+      <br/>
+      key ${event.key}
+      <br/>
+      keyCode ${event.keyCode}
+      <br/>
+      metaKey ${event.metaKey}
+    </div>`;
+  };
+
+  debug.innerHTML = html();
 }
 function supportSpace(event) {
   //Unidentified - for android

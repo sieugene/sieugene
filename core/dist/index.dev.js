@@ -77,14 +77,14 @@ function () {
     key: "setInput",
     value: function setInput($el) {
       this.$input = $el;
-      $el.addEventListener("textInput", inputChange);
+      $el.addEventListener("keypress", inputChange);
       $el.addEventListener("keydown", pressKey);
     }
   }, {
     key: "disableInput",
     value: function disableInput($el) {
       var id = Number($el.dataset.input) + 1;
-      $el.removeEventListener("textInput", inputChange);
+      $el.removeEventListener("keypress", inputChange);
       $el.removeEventListener("keydown", pressKey);
       this.$input = null;
       this.addInput(id); //сохранение прошлого инпута
@@ -221,14 +221,13 @@ timer(); //event Handlers
 
 function inputChange(event) {
   var debug = document.querySelector(".debug");
-  var code = event.data.charCodeAt(0);
-  debug.innerHTML = code; // keyCode is ASCII of character entered.
-  //mobile space search
-  // if (supportSpace(event)) {
-  //   pressKey(event);
-  // } else {
-  //   pressKey(event);
-  // }
+  console.log(event.which);
+
+  var html = function html() {
+    return "<div>\n      which: ".concat(event.which, "\n      <br/>\n      charCode ").concat(event.charCode, "\n      <br/>\n      KeyG ").concat(event.KeyG, "\n      <br/>\n      key ").concat(event.key, "\n      <br/>\n      keyCode ").concat(event.keyCode, "\n      <br/>\n      metaKey ").concat(event.metaKey, "\n    </div>");
+  };
+
+  debug.innerHTML = html();
 }
 
 function supportSpace(event) {

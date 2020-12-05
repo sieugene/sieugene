@@ -77,14 +77,14 @@ function () {
     key: "setInput",
     value: function setInput($el) {
       this.$input = $el;
-      $el.addEventListener("keypress", inputChange);
+      $el.addEventListener("input", inputChange);
       $el.addEventListener("keydown", pressKey);
     }
   }, {
     key: "disableInput",
     value: function disableInput($el) {
       var id = Number($el.dataset.input) + 1;
-      $el.removeEventListener("keypress", inputChange);
+      $el.removeEventListener("input", inputChange);
       $el.removeEventListener("keydown", pressKey);
       this.$input = null;
       this.addInput(id); //сохранение прошлого инпута
@@ -219,16 +219,7 @@ var timer = function timer() {
 
 timer(); //event Handlers
 
-function inputChange(event) {
-  var debug = document.querySelector(".debug");
-  console.log(event.which);
-
-  var html = function html() {
-    return "<div>\n      which: ".concat(event.which, "\n      <br/>\n      charCode ").concat(event.charCode, "\n      <br/>\n      KeyG ").concat(event.KeyG, "\n      <br/>\n      key ").concat(event.key, "\n      <br/>\n      keyCode ").concat(event.keyCode, "\n      <br/>\n      metaKey ").concat(event.metaKey, "\n    </div>");
-  };
-
-  debug.innerHTML = html();
-}
+function inputChange(event) {}
 
 function supportSpace(event) {
   //Unidentified - for android
@@ -327,7 +318,8 @@ var commandInputs = function commandInputs(command) {
 
 var formatText = function formatText(text) {
   if (text && text.length >= 1) {
-    return text.toLowerCase().replace(/\s/g, "");
+    var preFormatText = text.replace(/\./g, "");
+    return preFormatText.toLowerCase().replace(/\s/g, "");
   } else {
     return text;
   }

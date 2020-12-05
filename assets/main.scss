@@ -168,6 +168,11 @@
       float: none;
       width: 100% !important;
     }
+    .feature-wrap {
+      .feature-name {
+        margin-right: 30px !important;
+      }
+    }
   }
   @media screen and(max-width: 270px) {
     .feature-name,

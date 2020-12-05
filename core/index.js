@@ -46,12 +46,12 @@ class Core {
   //Input
   setInput($el) {
     this.$input = $el;
-    $el.addEventListener("keypress", inputChange);
+    $el.addEventListener("input", inputChange);
     $el.addEventListener("keydown", pressKey);
   }
   disableInput($el) {
     const id = Number($el.dataset.input) + 1;
-    $el.removeEventListener("keypress", inputChange);
+    $el.removeEventListener("input", inputChange);
     $el.removeEventListener("keydown", pressKey);
     this.$input = null;
     this.addInput(id);
@@ -167,28 +167,7 @@ const timer = () => {
 timer();
 
 //event Handlers
-function inputChange(event) {
-  const debug = document.querySelector(".debug");
-
-  console.log(event.which);
-  const html = () => {
-    return `<div>
-      which: ${event.which}
-      <br/>
-      charCode ${event.charCode}
-      <br/>
-      KeyG ${event.KeyG}
-      <br/>
-      key ${event.key}
-      <br/>
-      keyCode ${event.keyCode}
-      <br/>
-      metaKey ${event.metaKey}
-    </div>`;
-  };
-
-  debug.innerHTML = html();
-}
+function inputChange(event) {}
 function supportSpace(event) {
   //Unidentified - for android
   const keySpace = [32];
@@ -286,7 +265,8 @@ const commandInputs = (command) => {
 };
 const formatText = (text) => {
   if (text && text.length >= 1) {
-    return text.toLowerCase().replace(/\s/g, "");
+    let preFormatText = text.replace(/\./g, "");
+    return preFormatText.toLowerCase().replace(/\s/g, "");
   } else {
     return text;
   }

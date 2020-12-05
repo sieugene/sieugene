@@ -77,14 +77,14 @@ function () {
     key: "setInput",
     value: function setInput($el) {
       this.$input = $el;
-      $el.addEventListener("input", inputChange);
+      $el.addEventListener("textInput", inputChange);
       $el.addEventListener("keydown", pressKey);
     }
   }, {
     key: "disableInput",
     value: function disableInput($el) {
       var id = Number($el.dataset.input) + 1;
-      $el.removeEventListener("input", inputChange);
+      $el.removeEventListener("textInput", inputChange);
       $el.removeEventListener("keydown", pressKey);
       this.$input = null;
       this.addInput(id); //сохранение прошлого инпута
@@ -219,7 +219,11 @@ var timer = function timer() {
 
 timer(); //event Handlers
 
-function inputChange(event) {//mobile space search
+function inputChange(event) {
+  var debug = document.querySelector(".debug");
+  var code = event.data.charCodeAt(0);
+  debug.innerHTML = code; // keyCode is ASCII of character entered.
+  //mobile space search
   // if (supportSpace(event)) {
   //   pressKey(event);
   // } else {

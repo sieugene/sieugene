@@ -46,12 +46,12 @@ class Core {
   //Input
   setInput($el) {
     this.$input = $el;
-    $el.addEventListener("input", inputChange);
+    $el.addEventListener("textInput", inputChange);
     $el.addEventListener("keydown", pressKey);
   }
   disableInput($el) {
     const id = Number($el.dataset.input) + 1;
-    $el.removeEventListener("input", inputChange);
+    $el.removeEventListener("textInput", inputChange);
     $el.removeEventListener("keydown", pressKey);
     this.$input = null;
     this.addInput(id);
@@ -168,6 +168,11 @@ timer();
 
 //event Handlers
 function inputChange(event) {
+  const debug = document.querySelector(".debug");
+  var code = event.data.charCodeAt(0);
+  debug.innerHTML = code;
+  // keyCode is ASCII of character entered.
+
   //mobile space search
   // if (supportSpace(event)) {
   //   pressKey(event);

@@ -19,7 +19,9 @@ I am constantly striving to learn something new.</p>
   <img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
   <img alt="Prettier" src="https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white" />
 </p>
+
 ## Some of my Github Stats
+
 <p align=left> <img src=https://komarev.com/ghpvc/?username=sieugene alt=sieugene /> </p>
 
 [![Github stats](https://github-readme-stats.vercel.app/api?username=sieugene&show_icons=true&include_all_commits=true)](https://github.com/sieugene/github-readme-stats)

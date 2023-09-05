@@ -1,31 +1,55 @@
-## Hey 👋, This is Sieugene
-[![Gmail Badge](https://img.shields.io/badge/-sieugene@mail.ru-c14438?style=flat&logo=Gmail&logoColor=white&link=mailto:sieugene@mail.ru)](mailto:sieugene@mail.ru) 
-[![Linkedin Badge](https://img.shields.io/badge/-https://www.linkedin.com/in/sieugene-0072b1?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/sieugene/)](https://www.linkedin.com/in/sieugene/) [![Github Badge](https://img.shields.io/badge/-sieugene-grey?style=flat&logo=github&logoColor=white&link=https://github.com/sieugene/)](https://www.github.com/sieugene/) [![Portfolio Badge](https://img.shields.io/badge/portfolio-web-blue?style=flat&link=https://sieugene.vercel.app//)](https://sieugene.vercel.app//) <p align='left'>My name is Eugene, my main area of frontend development, I also study backend and blockchain development.    
-  **Frontend**: React(Next.js), redux/zustand/context api, apollo.    
-  **Backend**: Nest, typeorm, redis, postgres.    
-  **Blockchain**: solidity, remix, web3.    
+<h2 align="left">Hi 👋! My name is Eugene and I'm a FullStack Developer</h2>
 
-<h3>Things I code with</h3>
-<p>
-  <img alt="React" src="https://img.shields.io/badge/-React-45b8d8?style=flat-square&logo=react&logoColor=white" />
-  <img alt="Webpack" src="https://img.shields.io/badge/-Webpack-8DD6F9?style=flat-square&logo=webpack&logoColor=white" /> 
-  <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
-  <img alt="Javascript" src="https://img.shields.io/badge/-Javascript-dada03?style=flat-square&logo=Javascript&logoColor=black" />
-  <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white" />
-  <img alt="Next" src="https://img.shields.io/badge/-Next-434242?style=flat-square&logo=Next.js&logoColor=white" />
-  <img alt="redux" src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux&logoColor=white" />
-   <img alt="reduxsaga" src="https://img.shields.io/badge/-reduxsaga-white?style=flat-square&logo=Redux-saga&logoColor=86d46b" />
-  <img alt="Sass" src="https://img.shields.io/badge/-Sass-CC6699?style=flat-square&logo=sass&logoColor=white" />
-  <img alt="Styled Components" src="https://img.shields.io/badge/-Styled_Components-db7092?style=flat-square&logo=styled-components&logoColor=white" />
-  <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
-  <img alt="npm" src="https://img.shields.io/badge/-NPM-CB3837?style=flat-square&logo=npm&logoColor=white" />
-  <img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
-  <img alt="Prettier" src="https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white" />
-</p>
+###
 
-## Some of my Github Stats
+<div align="center">
+   <img src=https://komarev.com/ghpvc/?username=sieugene alt=sieugene />
+</div>
 
-<p align=left> <img src=https://komarev.com/ghpvc/?username=sieugene alt=sieugene /> </p>
+###
 
-[![Github stats](https://github-readme-stats.vercel.app/api?username=sieugene&show_icons=true&include_all_commits=true)](https://github.com/sieugene/github-readme-stats)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=sieugene&layout=compact)](https://github.com/sieugene/github-readme-stats)
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=sieugene&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sieugene&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
+</div>
+
+###
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="typescript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" height="40" alt="jest logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg" height="40" alt="storybook logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40" alt="nextjs logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" height="40" alt="nestjs logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="40" alt="postgresql logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height="40" alt="redux logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" height="40" alt="webpack logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="nodejs logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height="40" alt="docker logo"  />
+</div>
+
+###
+
+<div align="left">
+  <a href="mailto:eugenepoluakov@gmail.com" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
+  </a>
+  <a href="https://www.linkedin.com/in/sieugene/" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
+  </a>
+</div>
+
+###
